@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block titulo_pagina %} Nuevo movimiento {% endblock %}
+
+
+
+{% block contenido_pagina %}
+
+<div class="container">
+    <div class="row no-mb">
+        <div class="col s12">
+
+            <div class="content-container">
+
+                <div class="entry-content feature_forms animated fadeInUp">
+
+                    <div class="home-widget" id="text-inputs">
+                        <div class="widget-title">
+                            Alta de movimiento
+                        </div>
+                        {% for error in errores %}
+                            <blockquote style="color: brown;">
+                                {{ error }}
+                            </blockquote>
+                        {% endfor %}
+
+                        <form action="/nuevo" method="POST">
+                            <div class="input-field col s12">
+                                <input id="fecha" name="fecha" type="date" class="validate">
+                                <label for="first_name">Fecha</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Concepto" id="concepto" name="concepto" type="text" class="validate">
+                            </div>
+                            <div class="mb-2">
+                                <label>
+                                    <input class="with-gap" name="ingreso_gasto" id="ingreso" type="radio" value="I" />
+                                    <span>Ingreso</span>
+                                </label>
+                                <label>
+                                    <input class="with-gap" name="ingreso_gasto" id="gasto" type="radio" value="G" />
+                                    <span>Gasto</span>
+                                </label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Cantidad" id="cantidad" name="cantidad" type="number" class="validate">
+                                
+                            </div>
+                            <button type="submit" name="submit" class="btn block margin-bottom">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<script src="{{ url_for('static', filename='plugins/jQuery/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/materialize/js/materialize.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/slick/js/slick.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/swipebox/js/jquery.swipebox.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/MixItUp/jquery.mixitup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/counter-up-master/jquery.counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
